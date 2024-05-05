@@ -12,3 +12,10 @@ module "vpc" {
   vpc_cidr = var.vpc_cidr
   public_subnet_az1_cidr = var.public_subnet_az1_cidr
 }
+
+# Create the security group
+
+module "security_group" {
+  source = "../modules/security_groups"
+  vpc_id = module.vpc.vpc_id
+}
